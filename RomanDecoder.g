@@ -8,7 +8,7 @@ number returns [int value]
 @init{ 
 	$value = 0; 
 }
-	: (THOUSAND {$value += 1000;})* (h=hundreds_ {$value += $h.value;})? (t=tens_ {$value += $t.value;})? (u=units_ {$value += $u.value;})?
+	: ((THOUSAND {$value += 1000;})* (h=hundreds_ {$value += $h.value;})? (t=tens_ {$value += $t.value;})? (u=units_ {$value += $u.value;})? NEWLINE {System.out.println($value);$value=0;})*
 	;
 		
 hundreds_ returns [int value]
@@ -33,3 +33,5 @@ TEN5	:	 'L';
 HUNDRED	:	 'C';
 HUNDRED5:	 'D';
 THOUSAND:	 'M';
+
+NEWLINE : [\r\n]+;
