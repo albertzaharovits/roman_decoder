@@ -1,6 +1,6 @@
 .PHONY: all run clean
 
-ANTLR_PATH=/usr/local/lib/
+ANTLR_PATH=./
 ANTLR_JAR=antlr-4.0-complete.jar
 
 all: RomanDecoder.g
